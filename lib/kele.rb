@@ -18,13 +18,8 @@ module Kele
             }
 
             response = HTTParty.post("#{@bloc_api}/sessions", options)
-            if response.ok?
-                #inform user
-                response["auth_token"] 
-            else
-                #inform user - prompt retry 
-                "failed"
-            end
+            
+            response.ok? ? (response["auth_token"]) : (raise "invalid email or password") 
         end
     end
 
