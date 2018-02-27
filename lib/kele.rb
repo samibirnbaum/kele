@@ -3,7 +3,6 @@ require "httparty"
 module Kele
 
     class KeleConnect
-        include HTTParty
 
         def initialize(username, password)
             @bloc_api = "https://www.bloc.io/api/v1"
@@ -18,8 +17,14 @@ module Kele
                 }
             }
 
-            response = KeleConnect.post("#{@bloc_api}/sessions", options)
-            response["auth_token"]
+            response = HTTParty.post("#{@bloc_api}/sessions", options)
+            if response.ok?
+                #inform user
+                response["auth_token"] 
+            else
+                #inform user - prompt retry 
+                "failed"
+            end
         end
     end
 
