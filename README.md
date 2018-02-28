@@ -33,3 +33,18 @@ Step 2: Call these great methods **on the returned object** to talk with Blocs A
 #takes in a checkpoint_id, this can be found in the roadmap information returned by the get_roadmap method
 #returns the current users checkpoint information
 ```
+
+```Ruby
+.get_messages(number = 1)
+#takes in a page number, if no number provided, default will request page 1
+#returns the current users messages
+```
+
+```Ruby
+.create_message(sender, recipient_id, subject, body, token = nil)
+#takes in a quite a few arguments
+#sender = email address of the sender
+#recipient_id = id of person you are sending to, id accessible from Bloc API
+#token = a string referenceing a message thread, obtain using .get_messages method. Leave blank to start new thread
+#posts a message to the Bloc API
+```

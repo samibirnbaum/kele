@@ -32,4 +32,31 @@ class Kele
         response = HTTParty.get("#{@bloc_api}/mentors/#{mentor_id}/student_availability", headers: {authorization: @authenticaition_token})
         response.ok? ? (response) : (raise "Error retrieving mentor_availability")
     end
+
+    def get_messages(number = 1)
+        options = {
+            headers: {authorization: @authenticaition_token},
+            body: {page: number}    
+        }
+
+        response = HTTParty.get("#{@bloc_api}/message_threads", options)
+        response.ok? ? (response) : (raise "Error retrieving messages")
+    end
+
+    def create_message(sender, recipient_id, subject, body, token = nil)
+        options = {
+            headers: {authorization: @authenticaition_token},
+            body: {
+                sender: sender,
+                recipient_id: recipient_id,
+                subject: subject,
+                "stripped-text"=> body
+            }
+        }
+
+        options[:body][:token] = token unless token == nil
+        
+        response = HTTParty.post("#{@bloc_api}/messages", options)
+        response.ok? ? (response) : (raise "Error creating message")
+    end
 end
