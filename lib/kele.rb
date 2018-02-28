@@ -59,4 +59,20 @@ class Kele
         response = HTTParty.post("#{@bloc_api}/messages", options)
         response.ok? ? (response) : (raise "Error creating message")
     end
+
+    def create_submission(checkpoint_id, enrollment_id, assignment_branch, assignment_commit_link, comment = "")
+        options = {
+            headers: {authorization: @authenticaition_token},
+            body: {
+                checkpoint_id: checkpoint_id,
+                enrollment_id: enrollment_id,
+                assignment_branch: assignment_branch,
+                assignment_commit_link: assignment_commit_link,
+                comment: comment
+            }
+        }
+
+        response = HTTParty.post("#{@bloc_api}/checkpoint_submissions", options)
+        response.ok? ? (response) : (raise "Error submitting checkpoint")
+    end
 end

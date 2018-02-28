@@ -48,3 +48,13 @@ Step 2: Call these great methods **on the returned object** to talk with Blocs A
 #token = a string referenceing a message thread, obtain using .get_messages method. Leave blank to start new thread
 #posts a message to the Bloc API
 ```
+
+```Ruby
+.create_submission(checkpoint_id, enrollment_id, assignment_branch, assignment_commit_link, comment = "")
+#takes in a quite a few arguments
+#checkpoint_id = integer accessible via get_roadmap method
+#enrollment_id = integer accessible via get_me method
+#assignment_branch = a string, name of assignment branch on git hub
+#assignment_commit_link = a string, link to commit on git hub
+#posts a checkpoint submission to the Bloc API
+```
