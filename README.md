@@ -15,3 +15,9 @@ Step 2: Call these great methods **on the returned object** to talk with Blocs A
 .get_me
 #returns current user information
 ```
+
+```Ruby
+.get_mentor_availability(mentor_id)
+#takes in a mentor_id, this can be found in the user information returned by the get_me method
+#returns the current users mentors availability
+```
