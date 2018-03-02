@@ -1,4 +1,5 @@
 require "httparty"
+require 'json'
 require_relative "kele/roadmap"
 
 class Kele
@@ -19,13 +20,12 @@ class Kele
         }
 
         response = HTTParty.post("#{@bloc_api}/sessions", options)
-        
         response.ok? ? (response["auth_token"]) : (raise "invalid email or password") 
     end
 
     def get_me
         response = HTTParty.get("#{@bloc_api}/users/me", headers: {authorization: @authenticaition_token})
-        response.ok? ? (response) : (raise "Error retrieving current_user")
+        response.ok? ? (JSON.parse(response.body)) : (raise "Error retrieving current_user")
     end
 
     def get_mentor_availability(mentor_id)
