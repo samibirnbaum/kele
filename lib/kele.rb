@@ -30,7 +30,7 @@ class Kele
 
     def get_mentor_availability(mentor_id)
         response = HTTParty.get("#{@bloc_api}/mentors/#{mentor_id}/student_availability", headers: {authorization: @authenticaition_token})
-        response.ok? ? (response) : (raise "Error retrieving mentor_availability")
+        response.ok? ? (JSON.parse(response.body)) : (raise "Error retrieving mentor_availability")
     end
 
     def get_messages(number = 1)
