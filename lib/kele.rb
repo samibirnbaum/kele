@@ -60,12 +60,12 @@ class Kele
         response.ok? ? (response) : (raise "Error creating message")
     end
 
-    def create_submission(checkpoint_id, enrollment_id, assignment_branch, assignment_commit_link, comment = "")
+    def create_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment = "")
         options = {
             headers: {authorization: @authenticaition_token},
             body: {
                 checkpoint_id: checkpoint_id,
-                enrollment_id: enrollment_id,
+                enrollment_id: get_me["current_enrollment"]["id"],
                 assignment_branch: assignment_branch,
                 assignment_commit_link: assignment_commit_link,
                 comment: comment
