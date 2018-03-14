@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
     s.require_paths = ["lib"]
     s.homepage      = 'https://github.com/samibirnbaum/kele'
     s.license       = 'MIT'
-    s.add_runtime_dependency 'httparty', '~> 0.13' #other gem my gem relies on
+    s.add_runtime_dependency 'httparty', '~> 0.13'
     s.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.3'
   end
   

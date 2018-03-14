@@ -1,6 +1,6 @@
 # kele
 
-An API Client to access Blocs API - to be packaged as a Ruby Gem
+An API Client to access Blocs API
 
 Step 1: Open talks with Blocs API
 
@@ -58,3 +58,5 @@ Step 2: Call these great methods **on the returned object** to talk with Blocs A
 #assignment_commit_link = a string, link to commit on git hub
 #posts a checkpoint submission to the Bloc API
 ```
+
+**Note:** This is not supposed to be a finished product but was part of the learning process of my web development course with Bloc covering core programming topics. Consequently. this Gem has not been published.
