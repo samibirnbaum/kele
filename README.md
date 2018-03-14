@@ -60,3 +60,5 @@ Step 2: Call these great methods **on the returned object** to talk with Blocs A
 ```
 
 **Note:** This is not supposed to be a finished product but was part of the learning process of my web development course with Bloc covering core programming topics. Consequently. this Gem has not been published.
+
+[Case Study](https://samibirnbaum.com/portfolio/kele.html)
